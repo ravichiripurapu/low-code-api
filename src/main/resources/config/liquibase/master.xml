@@ -12,17 +12,19 @@
     <property name="timeType" value="time(6)" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033418_added_entity_Org.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033518_added_entity_PublicationStatus.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033618_added_entity_PublicationType.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033718_added_entity_PublicationForm.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033818_added_entity_PublicationFormData.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033918_added_entity_PublicationFormVersion.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803034018_added_entity_Publication.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033518_added_entity_constraints_PublicationStatus.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033618_added_entity_constraints_PublicationType.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033718_added_entity_constraints_PublicationForm.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803033918_added_entity_constraints_PublicationFormVersion.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20250803034018_added_entity_constraints_Publication.xml" relativeToChangelogFile="false"/>
-
+    <include file="config/liquibase/changelog/20250803215803_added_entity_Org.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803215903_added_entity_DocumentStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220003_added_entity_DocumentType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220103_added_entity_DocumentMetadata.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220203_added_entity_DocumentData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220303_added_entity_DocumentMetadataVersion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220403_added_entity_Document.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20250803215903_added_entity_constraints_DocumentStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220003_added_entity_constraints_DocumentType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220103_added_entity_constraints_DocumentMetadata.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220303_added_entity_constraints_DocumentMetadataVersion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250803220403_added_entity_constraints_Document.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

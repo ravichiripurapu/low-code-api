@@ -1,6 +1,8 @@
 package io.lowcode.platform.config;
 
 import java.time.Duration;
+
+import io.lowcode.platform.domain.*;
 import org.ehcache.config.builders.*;
 import org.ehcache.jsr107.Eh107Configuration;
 import org.hibernate.cache.jcache.ConfigSettings;
@@ -8,11 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.boot.info.BuildProperties;
-import org.springframework.boot.info.GitProperties;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.*;
-import io.lowcode.platform.config.CacheProperties;
 
 @Configuration
 @EnableCaching
@@ -47,12 +46,15 @@ public class CacheConfiguration {
             createCache(cm, io.lowcode.platform.domain.User.class.getName());
             createCache(cm, io.lowcode.platform.domain.Authority.class.getName());
             createCache(cm, io.lowcode.platform.domain.Org.class.getName());
-            createCache(cm, io.lowcode.platform.domain.PublicationStatus.class.getName());
-            createCache(cm, io.lowcode.platform.domain.PublicationType.class.getName());
-            createCache(cm, io.lowcode.platform.domain.PublicationForm.class.getName());
-            createCache(cm, io.lowcode.platform.domain.PublicationFormData.class.getName());
-            createCache(cm, io.lowcode.platform.domain.PublicationFormVersion.class.getName());
-            createCache(cm, io.lowcode.platform.domain.Publication.class.getName());
+
+            createCache(cm, DocumentStatus.class.getName());
+            createCache(cm, DocumentType.class.getName());
+            createCache(cm, DocumentMetadata.class.getName());
+            createCache(cm, DocumentData.class.getName());
+            createCache(cm, DocumentMetadataVersion.class.getName());
+            createCache(cm, Document.class.getName());
+
+
         };
     }
 
