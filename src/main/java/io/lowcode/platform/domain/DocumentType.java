@@ -57,8 +57,6 @@ public class DocumentType implements Serializable, Persistable<String> {
     @JsonIgnoreProperties(value = { "org" }, allowSetters = true)
     private Document document;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-
     public String getId() {
         return this.id;
     }
@@ -206,8 +204,6 @@ public class DocumentType implements Serializable, Persistable<String> {
         this.setDocument(document);
         return this;
     }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {

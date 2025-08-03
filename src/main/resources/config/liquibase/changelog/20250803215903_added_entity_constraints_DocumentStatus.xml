@@ -8,7 +8,7 @@
     <!--
         Added the constraints for entity DocumentStatus.
     -->
-    <changeSet id="20250803215903-2" author="jhipster">
+    <changeSet id="20250803215903-2" author="ravichiripurapu">
 
         <addForeignKeyConstraint baseColumnNames="document_id"
                                  baseTableName="document_status"

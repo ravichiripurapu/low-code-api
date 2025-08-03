@@ -8,7 +8,7 @@
     <!--
         Added the constraints for entity Document.
     -->
-    <changeSet id="20250803220403-2" author="jhipster">
+    <changeSet id="20250803220403-2" author="ravichiripurapu">
 
         <addForeignKeyConstraint baseColumnNames="org_id"
                                  baseTableName="document"

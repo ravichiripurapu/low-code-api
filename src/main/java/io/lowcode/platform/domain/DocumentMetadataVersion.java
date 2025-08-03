@@ -57,8 +57,6 @@ public class DocumentMetadataVersion implements Serializable, Persistable<String
     @JsonIgnoreProperties(value = { "document" }, allowSetters = true)
     private DocumentMetadata documentMetadata;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-
     public String getId() {
         return this.id;
     }
@@ -206,8 +204,6 @@ public class DocumentMetadataVersion implements Serializable, Persistable<String
         this.setDocumentMetadata(documentMetadata);
         return this;
     }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {

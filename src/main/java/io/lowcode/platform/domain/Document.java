@@ -56,7 +56,6 @@ public class Document implements Serializable, Persistable<String> {
     @ManyToOne(fetch = FetchType.LAZY)
     private Org org;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public String getId() {
         return this.id;
@@ -205,8 +204,6 @@ public class Document implements Serializable, Persistable<String> {
         this.setOrg(org);
         return this;
     }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
