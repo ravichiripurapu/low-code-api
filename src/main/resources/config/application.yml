@@ -226,3 +226,11 @@ jhipster:
 # ===================================================================
 
 # application:
+
+logging:
+  use-json-format: false
+
+cache:
+  ehcache:
+    max-entries: 100
+    time-to-live-seconds: 3600

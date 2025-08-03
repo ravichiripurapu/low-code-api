@@ -4,7 +4,6 @@ import io.lowcode.platform.config.Constants;
 import io.lowcode.platform.domain.User;
 import io.lowcode.platform.repository.UserRepository;
 import io.lowcode.platform.security.AuthoritiesConstants;
-import io.lowcode.platform.service.MailService;
 import io.lowcode.platform.service.UserService;
 import io.lowcode.platform.service.dto.AdminUserDTO;
 import io.lowcode.platform.web.rest.errors.BadRequestAlertException;
@@ -84,12 +83,9 @@ public class UserResource {
 
     private final UserRepository userRepository;
 
-    private final MailService mailService;
-
-    public UserResource(UserService userService, UserRepository userRepository, MailService mailService) {
+    public UserResource(UserService userService, UserRepository userRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
-        this.mailService = mailService;
     }
 
     /**
@@ -118,7 +114,6 @@ public class UserResource {
             throw new EmailAlreadyUsedException();
         } else {
             User newUser = userService.createUser(userDTO);
-            mailService.sendCreationEmail(newUser);
             return ResponseEntity.created(new URI("/api/admin/users/" + newUser.getLogin()))
                 .headers(HeaderUtil.createAlert(applicationName, "userManagement.created", newUser.getLogin()))
                 .body(newUser);

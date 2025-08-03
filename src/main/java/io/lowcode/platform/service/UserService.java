@@ -6,6 +6,7 @@ import io.lowcode.platform.domain.User;
 import io.lowcode.platform.repository.AuthorityRepository;
 import io.lowcode.platform.repository.UserRepository;
 import io.lowcode.platform.security.AuthoritiesConstants;
+import io.lowcode.platform.security.RandomUtil;
 import io.lowcode.platform.security.SecurityUtils;
 import io.lowcode.platform.service.dto.AdminUserDTO;
 import io.lowcode.platform.service.dto.UserDTO;
@@ -22,7 +23,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tech.jhipster.security.RandomUtil;
 
 /**
  * Service class for managing users.

@@ -1,8 +1,8 @@
 package io.lowcode.platform.config;
 
-import static tech.jhipster.config.logging.LoggingUtils.*;
-
 import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.ConsoleAppender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
@@ -21,7 +21,10 @@ public class LoggingConfiguration {
     public LoggingConfiguration(
         @Value("${spring.application.name}") String appName,
         @Value("${server.port}") String serverPort,
-        JHipsterProperties jHipsterProperties,
+        @Value("${logging.use-json-format:false}") boolean useJsonFormat,
+        @Value("${logging.logstash.enabled:false}") boolean logstashEnabled,
+        @Value("${logging.logstash.host:localhost}") String logstashHost,
+        @Value("${logging.logstash.port:5000}") int logstashPort,
         ObjectMapper mapper
     ) throws JsonProcessingException {
         LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
@@ -31,17 +34,18 @@ public class LoggingConfiguration {
         map.put("app_port", serverPort);
         String customFields = mapper.writeValueAsString(map);
 
-        JHipsterProperties.Logging loggingProperties = jHipsterProperties.getLogging();
-        JHipsterProperties.Logging.Logstash logstashProperties = loggingProperties.getLogstash();
-
-        if (loggingProperties.isUseJsonFormat()) {
+        if (useJsonFormat) {
             addJsonConsoleAppender(context, customFields);
         }
-        if (logstashProperties.isEnabled()) {
-            addLogstashTcpSocketAppender(context, customFields, logstashProperties);
-        }
-        if (loggingProperties.isUseJsonFormat() || logstashProperties.isEnabled()) {
-            addContextListener(context, customFields, loggingProperties);
-        }
+
+    }
+
+    public static void addJsonConsoleAppender(LoggerContext context, String customFields) {
+        ConsoleAppender<ILoggingEvent> consoleAppender = new ConsoleAppender();
+        consoleAppender.setContext(context);
+        consoleAppender.setName("CONSOLE");
+        consoleAppender.start();
+        context.getLogger("ROOT").detachAppender("CONSOLE");
+        context.getLogger("ROOT").addAppender(consoleAppender);
     }
 }

@@ -29,6 +29,13 @@ spring:
   messages:
     basename: i18n/messages
   security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
+        base64-secret: YzY2NjZhMmRiNzY2ZmMyMzU0MTFhMzllNmYyMjU3MWY2ZDczOWZmZWZjNzg2NjZhY2ZmNGMwNTM1ODJkMzg0NGZkNzUzZWM5YmE2YjgwODkxNmNmOWU5ZDY4MzQ2NzA4YTE4YTQyZjFmODgxZmQ3ZWJkZDMxZmU3ZjBiY2QwMjc=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 86400
     oauth2:
       resourceserver:
         jwt:
@@ -94,3 +101,11 @@ management:
   health:
     mail:
       enabled: false
+
+logging:
+  use-json-format: false
+
+cache:
+  ehcache:
+    max-entries: 100
+    time-to-live-seconds: 3600

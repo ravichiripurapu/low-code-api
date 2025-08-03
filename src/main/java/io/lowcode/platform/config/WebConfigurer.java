@@ -12,7 +12,8 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import tech.jhipster.config.JHipsterProperties;
+
+import java.util.List;
 
 /**
  * Configuration of web application with Servlet 3.0 APIs.
@@ -24,11 +25,11 @@ public class WebConfigurer implements ServletContextInitializer {
 
     private final Environment env;
 
-    private final JHipsterProperties jHipsterProperties;
+    private final ApplicationProperties applicationProperties;
 
-    public WebConfigurer(Environment env, JHipsterProperties jHipsterProperties) {
+    public WebConfigurer(Environment env, ApplicationProperties applicationProperties) {
         this.env = env;
-        this.jHipsterProperties = jHipsterProperties;
+        this.applicationProperties = applicationProperties;
     }
 
     @Override
@@ -43,8 +44,14 @@ public class WebConfigurer implements ServletContextInitializer {
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = jHipsterProperties.getCors();
-        if (!CollectionUtils.isEmpty(config.getAllowedOrigins()) || !CollectionUtils.isEmpty(config.getAllowedOriginPatterns())) {
+        CorsConfiguration config = new CorsConfiguration();
+        ApplicationProperties.CorsProperties cors = applicationProperties.getCors();
+
+        config.setAllowedOrigins(List.of(cors.getAllowedOrigins().split(",")));
+        config.setAllowedMethods(List.of(cors.getAllowedMethods().split(",")));
+        config.setAllowedHeaders(List.of(cors.getAllowedHeaders().split(",")));
+
+        if (!CollectionUtils.isEmpty(config.getAllowedOrigins())) {
             LOG.debug("Registering CORS filter");
             source.registerCorsConfiguration("/api/**", config);
             source.registerCorsConfiguration("/management/**", config);

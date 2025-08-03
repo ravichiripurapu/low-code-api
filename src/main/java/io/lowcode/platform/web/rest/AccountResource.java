@@ -3,7 +3,6 @@ package io.lowcode.platform.web.rest;
 import io.lowcode.platform.domain.User;
 import io.lowcode.platform.repository.UserRepository;
 import io.lowcode.platform.security.SecurityUtils;
-import io.lowcode.platform.service.MailService;
 import io.lowcode.platform.service.UserService;
 import io.lowcode.platform.service.dto.AdminUserDTO;
 import io.lowcode.platform.service.dto.PasswordChangeDTO;
@@ -38,12 +37,10 @@ public class AccountResource {
 
     private final UserService userService;
 
-    private final MailService mailService;
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService) {
+    public AccountResource(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
         this.userService = userService;
-        this.mailService = mailService;
     }
 
     /**
@@ -61,7 +58,6 @@ public class AccountResource {
             throw new InvalidPasswordException();
         }
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
-        mailService.sendActivationEmail(user);
     }
 
     /**
@@ -142,12 +138,8 @@ public class AccountResource {
     @PostMapping(path = "/account/reset-password/init")
     public void requestPasswordReset(@RequestBody String mail) {
         Optional<User> user = userService.requestPasswordReset(mail);
-        if (user.isPresent()) {
-            mailService.sendPasswordResetMail(user.orElseThrow());
-        } else {
-            // Pretend the request has been successful to prevent checking which emails really exist
-            // but log that an invalid attempt has been made
-            LOG.warn("Password reset requested for non existing mail");
+        if (!user.isPresent()) {
+            throw new AccountResourceException("No user was found for this email address");
         }
     }
 
