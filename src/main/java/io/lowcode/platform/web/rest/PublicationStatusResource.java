@@ -31,7 +31,7 @@ public class PublicationStatusResource {
 
     private static final String ENTITY_NAME = "publicationStatus";
 
-    @Value("${jhipster.clientApp.name}")
+    @Value("${spring.clientApp.name}")
     private String applicationName;
 
     private final PublicationStatusService publicationStatusService;

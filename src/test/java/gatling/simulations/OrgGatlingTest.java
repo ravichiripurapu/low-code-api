@@ -17,11 +17,7 @@ import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Performance test for the Org entity.
- *
- * @see <a href="https://github.com/jhipster/generator-jhipster/tree/v8.11.0/generators/gatling#logging-tips">Logging tips</a>
- */
+
 public class OrgGatlingTest extends Simulation {
 
     String baseURL = Optional.ofNullable(System.getProperty("baseURL")).orElse("http://localhost:8077");

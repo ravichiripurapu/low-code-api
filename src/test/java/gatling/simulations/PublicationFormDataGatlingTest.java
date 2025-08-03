@@ -19,8 +19,6 @@ import java.util.Optional;
 
 /**
  * Performance test for the PublicationFormData entity.
- *
- * @see <a href="https://github.com/jhipster/generator-jhipster/tree/v8.11.0/generators/gatling#logging-tips">Logging tips</a>
  */
 public class PublicationFormDataGatlingTest extends Simulation {
 

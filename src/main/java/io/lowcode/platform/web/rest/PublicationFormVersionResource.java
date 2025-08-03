@@ -31,7 +31,7 @@ public class PublicationFormVersionResource {
 
     private static final String ENTITY_NAME = "publicationFormVersion";
 
-    @Value("${jhipster.clientApp.name}")
+    @Value("${spring.clientApp.name}")
     private String applicationName;
 
     private final PublicationFormVersionService publicationFormVersionService;

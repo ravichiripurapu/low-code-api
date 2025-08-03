@@ -33,7 +33,7 @@ public class OrgResource {
 
     private static final String ENTITY_NAME = "org";
 
-    @Value("${jhipster.clientApp.name}")
+    @Value("${spring.clientApp.name}")
     private String applicationName;
 
     private final OrgService orgService;

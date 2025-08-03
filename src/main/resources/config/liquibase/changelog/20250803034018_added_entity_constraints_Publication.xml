@@ -8,7 +8,7 @@
     <!--
         Added the constraints for entity Publication.
     -->
-    <changeSet id="20250803034018-2" author="jhipster">
+    <changeSet id="20250803034018-2" author="ravichiripurapu">
 
         <addForeignKeyConstraint baseColumnNames="org_id"
                                  baseTableName="publication"

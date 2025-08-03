@@ -56,8 +56,6 @@ public class PublicationFormVersion implements Serializable, Persistable<String>
     @JsonIgnoreProperties(value = { "publication" }, allowSetters = true)
     private PublicationForm publicationForm;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-
     public String getId() {
         return this.id;
     }
@@ -205,8 +203,6 @@ public class PublicationFormVersion implements Serializable, Persistable<String>
         this.setPublicationForm(publicationForm);
         return this;
     }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {

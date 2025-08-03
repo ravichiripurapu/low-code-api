@@ -53,7 +53,6 @@ public class CacheConfiguration {
             createCache(cm, io.lowcode.platform.domain.PublicationFormData.class.getName());
             createCache(cm, io.lowcode.platform.domain.PublicationFormVersion.class.getName());
             createCache(cm, io.lowcode.platform.domain.Publication.class.getName());
-            // jhipster-needle-ehcache-add-entry
         };
     }
 
