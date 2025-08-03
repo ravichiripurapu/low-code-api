@@ -1,0 +1,60 @@
+{
+  "annotations": {
+    "changelogDate": "20250803034018"
+  },
+  "applications": ["lowcode"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "publicationDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "flagActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "uuid",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Publication",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "org",
+      "relationshipName": "org",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

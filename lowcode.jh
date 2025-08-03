@@ -1,0 +1,149 @@
+
+application {
+  config {
+    baseName lowcode
+    applicationType monolith
+    packageName io.lowcode.platform
+    authenticationType jwt
+    clientFramework react
+    databaseType sql
+    devDatabaseType postgresql
+    prodDatabaseType postgresql
+    buildTool maven
+    serverPort 8077
+    testFrameworks [cucumber,gatling,cypress]
+  }
+  entities *
+}
+
+entity Org {
+  @Id id String
+  name String maxlength(500)
+  address1 String
+  address2 String
+  city String
+  state String
+  zipcode String
+  createdTimestamp ZonedDateTime
+  updatedTimestamp ZonedDateTime
+  createdBy String
+  updatedBy String
+}
+
+entity PublicationStatus {
+  @Id id String
+  publicationStatusName String
+  publicationStatusCode String
+  flagActive Boolean
+  flagActive Boolean
+  createUser String
+  createdAt ZonedDateTime
+  updateUser String
+  updatedAt ZonedDateTime
+  uuid String
+}
+
+entity PublicationType {
+  @Id id String
+  publicationTypeName String
+  publicationTypeCode String
+  flagActive Boolean
+  flagActive Boolean
+  createUser String
+  createdAt ZonedDateTime
+  updateUser String
+  updatedAt ZonedDateTime
+  uuid String
+}
+
+
+entity PublicationForm {
+  @Id id Long
+  fieldLabel String
+  fieldType String
+  fieldName String
+  fieldId String
+  fieldClass String
+  fieldPlaceholder String
+  fieldOptions String
+  fieldConfigs String
+  description String
+  orderPosition Integer
+  validationConfigs String
+  errorMessage String
+  flagRequired Boolean
+  flagActive Boolean
+  createUser String
+  createdAt ZonedDateTime
+  updateUser String
+  updatedAt ZonedDateTime
+  uuid String
+}
+
+entity PublicationFormData {
+  @Id id Long
+  idFormVersion Long
+  idFormParent Long
+  fieldLabel String
+  fieldType String
+  fieldName String
+  fieldId String
+  fieldClass String
+  fieldPlaceholder String
+  fieldOptions String
+  fieldConfigs String
+  description String
+  orderPosition Integer
+  validationConfigs String
+  errorMessage String
+  flagRequired Boolean
+  flagActive Boolean
+  createUser String
+  createdAt ZonedDateTime
+  updateUser String
+  updatedAt ZonedDateTime
+  value String
+  alternativeValue String
+  uuid String
+}
+
+entity PublicationFormVersion {
+  @Id id String
+  publicationFormVersionName String
+  publicationFormVersionCode String
+  flagActive Boolean
+  flagActive Boolean
+  createUser String
+  createdAt ZonedDateTime
+  updateUser String
+  updatedAt ZonedDateTime
+  uuid String
+}
+
+entity Publication {
+  @Id id String
+  title String
+  publicationDate ZonedDateTime
+  flagActive Boolean
+  createUser String
+  createdAt ZonedDateTime
+  updateUser String
+  updatedAt ZonedDateTime
+  uuid String
+}
+
+
+relationship ManyToOne {
+  Publication{org} to Org
+  PublicationStatus{publication} to Publication
+  PublicationType{publication} to Publication
+  PublicationForm{publication} to Publication
+  PublicationFormVersion{publicationForm} to PublicationForm
+}
+
+
+
+dto * with mapstruct
+service * with serviceClass
+use pagination for *
+

@@ -1,0 +1,31 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "lowcode",
+    "buildTool": "maven",
+    "clientFramework": "react",
+    "creationTimestamp": 1754192031522,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "entities": [
+      "Org",
+      "PublicationStatus",
+      "PublicationType",
+      "PublicationForm",
+      "PublicationFormData",
+      "PublicationFormVersion",
+      "Publication"
+    ],
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "YzY2NjZhMmRiNzY2ZmMyMzU0MTFhMzllNmYyMjU3MWY2ZDczOWZmZWZjNzg2NjZhY2ZmNGMwNTM1ODJkMzg0NGZkNzUzZWM5YmE2YjgwODkxNmNmOWU5ZDY4MzQ2NzA4YTE4YTQyZjFmODgxZmQ3ZWJkZDMxZmU3ZjBiY2QwMjc=",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1754192418000,
+    "nativeLanguage": "en",
+    "packageName": "io.lowcode.platform",
+    "prodDatabaseType": "postgresql",
+    "serverPort": "8077",
+    "skipClient": true,
+    "testFrameworks": ["cucumber", "gatling", "cypress"]
+  }
+}

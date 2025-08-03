@@ -1,0 +1,113 @@
+{
+  "annotations": {
+    "changelogDate": "20250803033818"
+  },
+  "applications": ["lowcode"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "idFormVersion",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idFormParent",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "fieldLabel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldClass",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldPlaceholder",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldOptions",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldConfigs",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orderPosition",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "validationConfigs",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "errorMessage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "flagRequired",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "flagActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "alternativeValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "uuid",
+      "fieldType": "String"
+    }
+  ],
+  "name": "PublicationFormData",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
