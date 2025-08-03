@@ -9,7 +9,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class HeaderUtil {
-    private static final Logger log = LoggerFactory.getLogger(tech.jhipster.web.util.HeaderUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(HeaderUtil.class);
 
     private HeaderUtil() {
     }

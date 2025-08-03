@@ -15,8 +15,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import io.lowcode.platform.config.LowCodeAppConfigConstants;
-import tech.jhipster.config.liquibase.SpringLiquibaseUtil;
 
 @Configuration
 public class LiquibaseConfiguration {

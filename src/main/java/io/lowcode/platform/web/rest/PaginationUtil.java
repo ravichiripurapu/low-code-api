@@ -3,7 +3,6 @@ package io.lowcode.platform.web.rest;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.util.UriComponentsBuilder;
-import tech.jhipster.web.util.LinkHeaderUtil;
 
 public class PaginationUtil {
     private static final String HEADER_X_TOTAL_COUNT = "X-Total-Count";
